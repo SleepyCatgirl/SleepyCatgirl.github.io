@@ -26,6 +26,28 @@
 	As example, I will be using S.T.A.L.K.E.R Shadow of Chernobyl.
 	In ZFS, you can set compression per dataset with zfs set, for example</p>
       <div class="codeblock">
+	<p>zfs set compression=zstd hddPool/STALKERSoC</p>
+      </div>
+      <p>Anyhow, I had that set up already.
+	We can check our compression ratio with zfs get compressratio</p>
+      <div class="codeblock">
+	<p>zfs get compressratio hddPool/STALKERSoC@Stock</p>
+      </div>
+      <p>Results in:</p>
+      <div class="codeblock">
+	<p>
+	  <pre>| NAME                     | PROPERTY      | VALUE | SOURCE |<br>| hddPool/STALKERSoC@Stock | compressratio | 1.51x | -      |</pre>
+	</p>
+      </div>
+      <!-- TODO: CSS for code blocks, and complete this part-->
+      
+      <h4>Snapshots and clones</h4>
+      <p>
+	The example of installed mod will be Autumn Aurora 2<br>
+	First step is to get snapshot of unmodded game (naming of snapshots is dataset@snapshotname)<br>
+	In my case, I name it Stock
+      </p>
+      <div class="codeblock">
 	<p>zfs snapshot hddPool/STALKERSoC@Stock</p>
       </div>
       <p>Now we install mods, and once we have working modded setup, we can snapshot it too, if we might add more mods, and such</p>
@@ -36,14 +58,37 @@
       <div class="codeblock">
 	<p>zfs rollback hddPool/STALKERSoC@AA2</p>
       </div>
+      <p>
+	Now, if we want to play stock, we could mount snapshot, but that will be read-only,<br>
+	this is where zfs clone comes into play<br>
+	We use zfs clone to clone snapshot into its own dataset, that can be treated like any other dataset
+      </p>
+      <div class="codeblock">
+	<p>zfs clone hddPool/STALKERSoC@Stock hddPool/STALKERSoCUNmodded</p>
+      </div>
+      <p>
+	The neat part is, that it won't suddenly start taking up another 4GB of space. It will only take up as much space,
+as much as we write to it, resulting in us getting both modded, and unmodded game,
+without it taking up space twice, and it doesn't suffer from having to wait for copy-paste of entire game folder for backup before modding
+</p>
 
-      <!-- TODO: CSS for code blocks, and complete this part-->
-      
-      <h4>Snapshots and clones</h4>
+
       <h3>Conclusion</h3>
       <p>While getting around how zfs behaves, and how to use could take a while, I think it is very much worth for desktop, and not just servers.
-	Also generally, while S.T.A.L.K.E.R Shadow of Chernobyl is quite favorable case with compression,</p>
-
+	Also generally, while S.T.A.L.K.E.R Shadow of Chernobyl is quite favorable case with compression,
+	I myself on average get ~1.2x-1.3x compression ratio
+      </p>
+      <div class="codeblock">
+	<p>zfs get compressratio hddPool ssdPool</p>
+      </div>
+      <p>Which results in</p>
+      <div class="codeblock">
+	<p>
+	  <pre>
+| NAME    | PROPERTY      | VALUE | SOURCE |
+| hddPool | compressratio | 1.17x | -      |
+| ssdPool | compressratio | 1.31x | -      |</pre></p></div>
+      <p> It simply depends on the data, as some data, games won't compress at all.</p>
     </div>
   </body>
 </html>

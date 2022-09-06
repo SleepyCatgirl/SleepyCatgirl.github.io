@@ -42,3 +42,6 @@ body {
     background-color: #252525;
     border-radius: 10px;
 }
+.pre {
+    font-family: 'Roboto Mono', monospace;
+}
