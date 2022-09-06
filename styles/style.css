@@ -1,6 +1,32 @@
 body {
+    margin: 0;
     color: #454545;
     line-height: 1.4;
     background-color: #EEEEEE;
     font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+    overflow: hidden;
+    color: #EEEEEE;
+    background-color: #454545;
+}
+.navbar a {
+    float: left;
+    padding: 14px 16px;
+    text-align: center;
+    font-size: 18px;
+    color: #EEEEEE;
+    text-decoration: none;
+    border-right-width: 3px;
+    border-right-style: solid;
+    border-right-color: #353535;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: #454545;
+}
+.content {
+    margin: 1%;
 }
