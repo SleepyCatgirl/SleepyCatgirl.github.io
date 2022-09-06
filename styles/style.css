@@ -28,5 +28,8 @@ body {
     color: #454545;
 }
 .content {
-    margin: 1%;
+    margin: 2em auto;
+    max-width: 800px;
+    padding: 1em;
+    text-align: justify;
 }

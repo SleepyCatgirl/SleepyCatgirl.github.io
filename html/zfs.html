@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Sleepy blog nyah</title>
+    <link href="../styles/style.css" rel="stylesheet">
+
+    <!-- Google's fonts, roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="../index.html">Home</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="content">
+      <h1>Comfy, space efficient modding games with ZFS</h1>
+      <p>So, modding games. While modern games have things like Steam Workshop, which takes away worries of breaking the game, with older games we do not have such pleasure, and at times, we even have to make a copy of game, in case the mod breaks something.
+	In this blog post, I will write about how we can have copy of entire game, at the cost of *one* game, or even less.</p>
+      <h3>ZFS itself</h3>
+      <p>So, why ZFS? That is because, due to how its' copy-on-write nature and features, we can achieve very space efficient game modding setup</p>
+      <h4>Transparent compression</h4>
+      <p>This is the first feature, which will help not only with old games, but also modern games and mods.
+	As example, I will be using S.T.A.L.K.E.R Shadow of Chernobyl.
+	You can set compression per dataset with zfs set.</p>
+      <!-- TODO: CSS for code blocks, and complete this part-->
+      <h4>Snapshots and clones</h4>
+      <h3>Conclusion</h3>
+      <p>While getting around how zfs behaves, and how to use could take a while, I think it is very much worth for desktop, and not just servers.
+	Also generally, while S.T.A.L.K.E.R Shadow of Chernobyl is quite favorable case with compression,</p>
+
+    </div>
+  </body>
+</html>
