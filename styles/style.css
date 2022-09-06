@@ -33,3 +33,12 @@ body {
     padding: 1em;
     text-align: justify;
 }
+
+
+.codeblock {
+    font-family: 'Roboto Mono', monospace;
+    color: #DDDDDD;
+    padding: 1px 5px 3px 15px;
+    background-color: #252525;
+    border-radius: 10px;
+}

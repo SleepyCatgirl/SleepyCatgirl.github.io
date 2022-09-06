@@ -8,7 +8,7 @@
     <!-- Google's fonts, roboto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="navbar">
@@ -22,10 +22,23 @@
       <h3>ZFS itself</h3>
       <p>So, why ZFS? That is because, due to how its' copy-on-write nature and features, we can achieve very space efficient game modding setup</p>
       <h4>Transparent compression</h4>
-      <p>This is the first feature, which will help not only with old games, but also modern games and mods.
+      <p>This is the first feature, which will help not only with old games, but also modern games and mods.<br>
 	As example, I will be using S.T.A.L.K.E.R Shadow of Chernobyl.
-	You can set compression per dataset with zfs set.</p>
+	In ZFS, you can set compression per dataset with zfs set, for example</p>
+      <div class="codeblock">
+	<p>zfs snapshot hddPool/STALKERSoC@Stock</p>
+      </div>
+      <p>Now we install mods, and once we have working modded setup, we can snapshot it too, if we might add more mods, and such</p>
+      <div class="codeblock">
+	<p>zfs snapshot hddPool/STALKERSoC@AA2</p>
+      </div>
+      <p>Now if we break something, we can just rollback</p>
+      <div class="codeblock">
+	<p>zfs rollback hddPool/STALKERSoC@AA2</p>
+      </div>
+
       <!-- TODO: CSS for code blocks, and complete this part-->
+      
       <h4>Snapshots and clones</h4>
       <h3>Conclusion</h3>
       <p>While getting around how zfs behaves, and how to use could take a while, I think it is very much worth for desktop, and not just servers.
