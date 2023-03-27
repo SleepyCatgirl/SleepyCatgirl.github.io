@@ -1,0 +1,20 @@
+body {
+    background-image: url(./tiled-bg.png);
+    background-repeat: repeat;
+    background-color:#20211f;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.colors {
+    color: #4a453f;
+    background-color: #20211f
+}
+
+.main-box {
+    display: flex;
+    border: 2px solid #605952;
+    height: 800px;
+    width: 50%;
+}
